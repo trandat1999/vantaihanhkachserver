@@ -15,7 +15,7 @@ public interface IChuyenXeRepository extends JpaRepository<ChuyenXe, Long>{
 	
 	@Modifying
 	@Query("select a from ChuyenXe a where month(a.ngayChay) = month(?1) and year(a.ngayChay) = year(?2)")
-	List<ChuyenXe> findByMonth(String date, String date2);
+	List<ChuyenXe> findByMonth(Date date, Date date2);
 	
 	@Modifying
 	@Query("select a from ChuyenXe a where a.ngayChay between ?1 and ?2")
