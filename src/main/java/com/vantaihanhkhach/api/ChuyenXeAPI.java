@@ -36,7 +36,7 @@ public class ChuyenXeAPI {
 		Date date1;
 	
 		try {
-			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+			date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(date);
 			return xeKhachRepo.findByMonth(date1, date1);
 		} catch (ParseException e1) {
 			return null;

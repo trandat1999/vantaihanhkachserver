@@ -18,7 +18,7 @@ public interface IChuyenXeRepository extends JpaRepository<ChuyenXe, Long> {
 //	List<ChuyenXe> findByMonth(Date date, Date date2);
 
 	@Modifying
-	@Query("select a from ChuyenXe a where EXTRACT(MONTH FROM a.ngayChay::date)= EXTRACT(MONTH FROM ?1::date) and EXTRACT(YEAR FROM a.ngayChay::date)= EXTRACT(YEAR FROM ?2::date)")
+	@Query("select a from ChuyenXe a where EXTRACT(MONTH FROM timestamp a.ngayChay)= EXTRACT(MONTH FROM timestamp ?1) and EXTRACT(YEAR FROM timestamp a.ngayChay)= EXTRACT(YEAR FROM timestamp ?2)")
 	List<ChuyenXe> findByMonth(Date date, Date date2);
 
 	@Modifying
