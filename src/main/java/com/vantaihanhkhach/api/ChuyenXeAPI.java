@@ -32,8 +32,8 @@ public class ChuyenXeAPI {
 	private IChuyenXeRepository xeKhachRepo;
 	
 	
-	@GetMapping("/get/{date}")
-	public List<ChuyenXe> getAllByMonth(@PathVariable("date") String date){
+	@GetMapping("/get")
+	public List<ChuyenXe> getAllByMonth(){
 		Date today= new Date();
 		Date a= new Date();
 		a.setDate(1);
