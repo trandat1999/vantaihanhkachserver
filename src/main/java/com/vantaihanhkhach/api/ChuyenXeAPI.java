@@ -2,6 +2,7 @@ package com.vantaihanhkhach.api;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -33,17 +34,10 @@ public class ChuyenXeAPI {
 	
 	@GetMapping("/get/{date}")
 	public List<ChuyenXe> getAllByMonth(@PathVariable("date") String date){
-		Date date1;
-		Date date2;
-	
-		try {
-			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);
-			date2=date1;
-			date2.setDate(1);
-			return xeKhachRepo.findByMonth(date1, date2);
-		} catch (ParseException e1) {
-			return null;
-		}
+		Date today= new Date();
+		Date a= new Date();
+		a.setDate(1);
+		return xeKhachRepo.findByMonth(a, today);
 		
 	}
 	
