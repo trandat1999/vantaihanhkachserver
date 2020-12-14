@@ -34,10 +34,13 @@ public class ChuyenXeAPI {
 	@GetMapping("/get/{date}")
 	public List<ChuyenXe> getAllByMonth(@PathVariable("date") String date){
 		Date date1;
+		Date date2;
 	
 		try {
-			date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(date);
-			return xeKhachRepo.findByMonth(date1, date1);
+			date1 = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+			date2=date1;
+			date2.setDate(1);
+			return xeKhachRepo.findByMonth(date1, date2);
 		} catch (ParseException e1) {
 			return null;
 		}
